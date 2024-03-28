@@ -63,6 +63,11 @@ function getCaloriesFromInputs(list) {
   for (const item of list) {
     const currVal = cleanInputString(item.value);
     const invalidInputMatch = isInvalidInput(currVal);
+    const surplusOrDeficit = remainingCalories < 0 ? 'Surplus' : 'Deficit';
+  output.innerHTML = `
+  <span class="${surplusOrDeficit.toLowerCase()}">${remainingCalories} Calorie ${surplusOrDeficit}</span>
+  `;
+ }
 
     if (invalidInputMatch) {
         alert(`Invalid Input: ${invalidInputMatch[0]}`);
